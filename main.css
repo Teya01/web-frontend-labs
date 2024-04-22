@@ -1,0 +1,27 @@
+body {
+    background-color: lightblue;
+    color: maroon;
+    font-family: Arial;
+    margin: 0px;
+}
+main {
+    background-color: cadetblue;
+    color: burlywood;
+    font-family: 'Times New Roman', Times, serif;
+    margin: 0px;
+}
+header {
+    background-color: cornsilk;
+    color: darkgreen;
+    font-family: 'Times New Roman', Times, serif;
+    margin: 10px;
+}
+footer {
+    background-color: cornsilk;
+    color: darkgreen;
+    font-family: 'Times New Roman', Times, serif;
+    margin: 10px;
+}
+a {
+    text-decoration: none;
+}
