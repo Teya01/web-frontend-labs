@@ -8,7 +8,7 @@ main {
     background-color: cadetblue;
     color: burlywood;
     font-family: 'Times New Roman', Times, serif;
-    margin: 0px;
+    margin: 10px 20px 45px;
 }
 header {
     background-color: cornsilk;
@@ -21,6 +21,10 @@ footer {
     color: darkgreen;
     font-family: 'Times New Roman', Times, serif;
     margin: 10px;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
 }
 a {
     text-decoration: none;
