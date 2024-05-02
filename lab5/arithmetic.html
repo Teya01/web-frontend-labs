@@ -24,6 +24,30 @@
                 let message = "Приветствую Вас на моей странице! \nНадеюсь на скорую встречу!";
                 alert(message)
             }
+            function showDiff() {
+                let inputA = document.getElementById("numberA")
+                let inputB = document.getElementById("numberB")
+                let a = parseInt(inputA.value);
+                let b = parseInt(inputB.value);
+                let result = a - b;
+                alert("Разность " + a + " и " + b + " равна " + result);
+            }
+            function showWork() {
+                let inputA = document.getElementById("numberA")
+                let inputB = document.getElementById("numberB")
+                let a = parseInt(inputA.value);
+                let b = parseInt(inputB.value);
+                let result = a * b;
+                alert("Произведение " + a + " и " + b + " равно " + result);
+            }
+            function showQuot() {
+                let inputA = document.getElementById("numberA")
+                let inputB = document.getElementById("numberB")
+                let a = parseInt(inputA.value);
+                let b = parseInt(inputB.value);
+                let result = a / b;
+                alert("Частное " + a + " и " + b + " равно " + result);
+            }
         </script>
         <style>
             .message {
@@ -53,7 +77,9 @@
             <label>Первое число: <input type="number" value="5154" id="numberA"></label><br>
             <label>Второе число: <input type="number" value="7891" id="numberB"></label><br>
             <div class="message" onclick="showSum()">Найти сумму чисел</div>
-
+            <div class="message" onclick="showDiff()">Найти разность чисел</div>
+            <div class="message" onclick="showWork()">Найти произведение чисел</div>
+            <div class="message" onclick="showQuot()">Найти частное чисел</div>
             <div class="message" onclick="showAuthor()">Узнать, кто автор страницы</div>
         </main>
 
