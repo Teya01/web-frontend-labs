@@ -48,6 +48,13 @@
                 let result = a / b;
                 alert("Частное " + a + " и " + b + " равно " + result);
             }
+            function changeOutput(buttonNum, backColor, textColor, border) {
+                let output = document.getElementById("output");
+                output.innerHTML = "Нажата кнопка " + buttonNum;
+                output.style.backgroundColor = backColor;
+                output.style.color = textColor;
+                output.style.border = border;
+            }
         </script>
         <style>
             .message {
@@ -65,6 +72,11 @@
             footer {
                 cursor: pointer;
             }
+            #output {
+                border: 1px solid;
+                width: 300px;
+                height: 40px;
+            }
         </style>
     </head>
 
@@ -81,6 +93,14 @@
             <div class="message" onclick="showWork()">Найти произведение чисел</div>
             <div class="message" onclick="showQuot()">Найти частное чисел</div>
             <div class="message" onclick="showAuthor()">Узнать, кто автор страницы</div>
+            <div>
+                <input type="button" value="Кнопка 1" onclick="changeOutput(1, 'red', 'yellow', '1px solid')">
+                <input type="button" value="Кнопка 2" onclick="changeOutput(2, 'black', 'lime', '2px solid')">
+                <input type="button" value="Кнопка 3" onclick="changeOutput(3, 'violet', 'blue', '3px solid')">
+                <input type="button" value="Кнопка 4" onclick="changeOutput(4, 'green', 'white', '4px solid')">
+            </div>
+
+            <div id="output"></div>
         </main>
 
         <footer onclick="showMessage()">
