@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Адалинская Тэя Валентиновна. Лабораторная 5</title>
+        <link rel="stylesheet" href="../main.css">
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+        <link rel="icon" href="favicon-16x16.png">
+        <link rel="icon" href="favicon-32x32.png">
+        <script>
+            function Summa(){
+                let a1 = document.getElementById('a1');
+                let a2 = document.getElementById('a2');
+                let a3 = document.getElementById('a3');
+                let a4 = document.getElementById('a4');
+    
+                let a = parseInt(a1.value);
+                let b = parseInt(a2.value);
+                let c = parseInt(a3.value);
+                let d = parseInt(a4.value);
+                let summa = a*100 + b*80 + c*150 + d*300;
+                let output = document.getElementById('output');
+                output.innerHTML = 'Общая цена: ' + summa + 'р';
+            }
+        </script>
+         <style>
+            .cart{
+                margin: 0 auto;
+                border: 2px solid rgb(135, 214, 156);
+                border-radius: 5px;
+                width: 300px;
+                height: 400px;
+                padding: 5px 40px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <header>
+            НГТУ, ФБ, Лабораторная 5
+        </header>
+
+        <main>
+            <div class="cart">
+                <h2>Корзина товаров</h2>
+                <p>Яблоки (100р/шт):</p>
+                <input type="number" id="a1" min="0" placeholder="Укажите кол-во яблок">
+                <p>Груши (80р/шт):</p>
+                <input type="number" id="a2" min="0" placeholder="Укажите кол-во груш">
+                <p>Апельсины (150р/шт):</p>
+                <input type="number" id="a3" min="0" placeholder="Укажите кол-во апельсинов">
+                <p>Дыни (300р/шт):</p>
+                <input type="number" id="a4" min="0" placeholder="Укажите кол-во дынь"><br><br>
+                <input class="button" type="button" value="Рассчитать" onclick="Summa()">
+                <div id="output"></div>
+        </main>
+
+        <footer>
+            &copy; Адалинская Тэя, ФБИ-24, 2 курс, 2024
+        </footer>
+    </body>
+</html>
