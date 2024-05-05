@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Адалинская Тэя Валентиновна. Корзина товаров</title>
+        <link rel="stylesheet" href="../main.css">
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+        <link rel="icon" href="favicon-16x16.png">
+        <link rel="icon" href="favicon-32x32.png">
+        <script>
+            function calculateTotal() {
+                const balance = parseFloat(document.getElementById('balance').value);
+                let total = 0;
+                let hasProducts = false;
+      
+                const apples = parseFloat(document.getElementById('apples').value);
+                const pears = parseFloat(document.getElementById('pears').value);
+                const oranges = parseFloat(document.getElementById('oranges').value);
+                const tomatoes = parseFloat(document.getElementById('tomatoes').value);
+                const cucumbers = parseFloat(document.getElementById('cucumbers').value);
+                const peaches = parseFloat(document.getElementById('peaches').value);
+                const potatoes = parseFloat(document.getElementById('potatoes').value);
+      
+                if (apples < 0 || pears < 0 || oranges < 0 || tomatoes < 0 || cucumbers < 0 || peaches < 0 || potatoes < 0) {
+                    document.getElementById('result').innerHTML = 'Количество товаров не может быть отрицательным.';
+                    return;
+                }
+      
+                if (apples > 0) {
+                    hasProducts = true;
+                    total += apples * 100;
+                }
+                if (pears > 0) {
+                    hasProducts = true;
+                    total += pears * 80;
+                }
+                if (oranges > 0) {
+                    hasProducts = true;
+                    total += oranges * 120;
+                }
+                if (tomatoes > 0) {
+                    hasProducts = true;
+                    total += tomatoes * 100;
+                }
+                if (cucumbers > 0) {
+                    hasProducts = true;
+                    total += cucumbers * 110;
+                }
+                if (peaches > 0) {
+                    hasProducts = true;
+                    total += peaches * 110;
+                }
+                if (potatoes > 0) {
+                    hasProducts = true;
+                    total += potatoes * 150;
+                }
+                if (!hasProducts) {
+                    document.getElementById('result').innerHTML = 'Пожалуйста, выберите хотя бы один товар.';
+                    return;
+                }
+      
+                if (total > balance) {
+                    document.getElementById('result').innerHTML = `Ваш баланс недостаточен. Общая сумма: ${total.toFixed(2)} RUB, ваш баланс: ${balance.toFixed(2)} RUB.`;
+                } else {
+                    document.getElementById('result').innerHTML = `Покупка успешно оформлена. Общая сумма: ${total.toFixed(2)} RUB.`;
+                }
+            }
+        </script>
+    </head>
+        <body>
+            <h1>Shopping Cart</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Продукт</th>
+                        <th>Цена</th>
+                        <th>Количество</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Яблоки</td>
+                        <td>100 руб</td>
+                        <td><input type="number" id="apples" value="0" min="0"></td>
+                    </tr>
+                    <tr>
+                        <td>Груши</td>
+                        <td>80 руб</td>
+                        <td><input type="number" id="pears" value="0" min="0"></td>
+                    </tr>
+                    <tr>
+                        <td>Апельсины</td>
+                        <td>120 руб</td>
+                        <td><input type="number" id="oranges" value="0" min="0"></td>
+                    </tr>
+                    <tr>
+                        <td>Томаты</td>
+                        <td>100 руб</td>
+                        <td><input type="number" id="tomatoes" value="0" min="0"></td>
+                    </tr>
+                    <tr>
+                        <td>Огурцы</td>
+                        <td>110 руб</td>
+                        <td><input type="number" id="cucumbers" value="0" min="0"></td>
+                    </tr>
+                    <tr>
+                        <td>Персики</td>
+                        <td>110 руб</td>
+                        <td><input type="number" id="peaches" value="0" min="0"></td>
+                    </tr>
+                    <tr>
+                        <td>Картофель</td>
+                        <td>150 руб</td>
+                        <td><input type="number" id="potatoes" value="0" min="0"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>Мой баланс: <input type="number" id="balance" value="0" min="0"> руб</p>
+            <button onclick="calculateTotal()">OK</button>
+            <p id="result"></p>
+        </main>
+
+        <footer>
+            &copy; Адалинская Тэя, ФБИ-24, 2 курс, 2024
+        </footer>
+    </body>
+</html>
