@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Адалинская Тэя Валентиновна. Лабораторная 6</title>
+        <link rel="stylesheet" href="../main.css">
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+        <link rel="icon" href="favicon-16x16.png">
+        <link rel="icon" href="favicon-32x32.png">
+        <script>
+            function filter() {
+                let color = document.getElementById("wear-color").value;
+                let type = document.getElementById("wear-type").value;
+                let wear = document.getElementById("wear");
+
+                if(color == "Красный" && type == "Футболка") {
+                    wear.src = "https://ice-skate.online/wp-content/uploads/2022/05/futbolka-muzhskaya-krasnaya-poster-3.jpg";
+                    wear.width = 500;
+                }
+                else if(color == "Белый" && type == "Футболка") {
+                    wear.src = "http://www.leksiart.ru/images/cms/data/1017763196.jpg";
+                    wear.width = 500;
+                }
+                else if(color == "Чёрный" && type == "Футболка") {
+                    wear.src = "https://moscow.zakrepi.ru/images/uploaded/catalog-gallery/futbolka-chernaya-krepyzh/23-08-02-11-14-1_large.jpg";
+                    wear.width = 500;
+                }
+                else if(color == "Красный" && type == "Поло") {
+                    wear.src = "https://smcatalog.ru/upload/iblock/482/482826924c223ab55d614fede6886984.jpg";
+                    wear.width = 500;
+                }
+                else if(color == "Белый" && type == "Поло") {
+                    wear.src = "https://illan-gifts.ru/api/images/polo-muzhskoe-original-polo-yz-hlopka-175-g-m-beloe-713574.jpeg";
+                    wear.width = 500;
+                }
+                else if(color == "Чёрный" && type == "Поло") {
+                    wear.src = "https://cdn2.static1-sima-land.com/items/1143714/2/700-nw.jpg";
+                    wear.width = 500;
+                }
+                else if(color == "Красный" && type == "Майка") {
+                    wear.src = "https://cdn.lbtq.io/productImage/resize/1200x1600_40cd750bba9870f18aada2478b24840a/20180326/095/20180326095404_004030625_5.jpg";
+                    wear.width = 500;
+                }
+                else if(color == "Белый" && type == "Майка") {
+                    wear.src = "https://basket-02.wbbasket.ru/vol263/part26324/26324942/images/big/1.jpg";
+                    wear.width = 500;
+                }
+                else if(color == "Чёрный" && type == "Майка") {
+                    wear.src = "https://16.peredacha-ik.ru/1350-thickbox_default/mayka-muzhskaya-chyornaya-h-b.jpg";
+                    wear.width = 500;
+                }
+            }  
+        </script> 
+    </head>
+
+    <body>
+        <header>
+            НГТУ, ФБ, Лабораторная 6
+        </header>
+
+        <main>
+            <div>
+                Цвет одежды:
+                <select id="wear-color">
+                    <option>Красный</option>
+                    <option>Белый</option>
+                    <option>Чёрный</option>
+                </select><br>
+
+                Тип одежды:
+                <select id="wear-type">
+                    <option>Футболка</option>
+                    <option>Поло</option>
+                    <option>Майка</option>
+                </select><br>
+
+                <button onclick="filter()">OK</button><br>
+
+                <img id="wear">
+            </div>
+        </main>
+
+        <footer>
+            &copy; Адалинская Тэя, ФБИ-24, 2 курс, 2024
+        </footer>
+    </body>
+</html>
