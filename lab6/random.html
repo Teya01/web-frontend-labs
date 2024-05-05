@@ -62,6 +62,16 @@
                     let message = document.getElementById("result");
                     message.innerHTML = "";
             }
+            function showRules() {
+                document.getElementById("game-rules").style.display = "block";
+                document.getElementById("show-rules").style.display = "none";
+                document.getElementById("hide-rules").style.display = "inline-block";
+            }
+            function hideRules() {
+                document.getElementById("game-rules").style.display = "none";
+                document.getElementById("show-rules").style.display = "inline-block";
+                document.getElementById("hide-rules").style.display = "none";
+            }
         </script>
     </head>
 
@@ -75,6 +85,20 @@
                 <button onclick="startGame()">
                     Сыграть в игру
                 </button>
+            </div>
+
+            <button id="show-rules" onclick="showRules()">Показать правила игры</button>
+            <div id="game-rules" id="game-rules" style="display: none;">
+                <button id="hide-rules" onclick="hideRules()">Скрыть правила игры</button>
+                <h2>Правила игры:</h2>
+                <ul>
+                    <li>Компьютер загадал случайное число от 1 до 100.</li>
+                    <li>Вы нажимаете кнопку угадать число.</li>
+                    <li>Вводите в поле предполагаемое число.</li>
+                    <li>Если Ваше число больше загаданного, Вам будет сообщено "Вы ввели слишком маленькое число"</li>
+                    <li>Если Ваше число меньше загаданного, Вам будет сообщено "Вы ввели слишком большое число"</li>
+                    <li>Вы имеете неограниченное количество попыток, пока не угадаете число</li>
+                </ul>                
             </div>
             
             <div class="game" style="display: none;">
