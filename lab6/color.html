@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Адалинская Тэя Валентиновна. Перебор цветов</title>
+        <link rel="stylesheet" href="../main.css">
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+        <link rel="icon" href="favicon-16x16.png">
+        <link rel="icon" href="favicon-32x32.png">
+        <style>
+            .color {
+                width: 300px;
+                height: 50px;
+                background-color: yellow;
+                border: 1px solid red;
+                text-align: center;
+                cursor: pointer;
+                transition: 1s;
+            }
+        </style>
+        <script>
+            function changeColor(div) {
+                if(div.style.backgroundColor == "yellow") {
+                    div.style.backgroundColor = "red";
+                    document.getElementById("color-name").innerHTML = "красный";
+                }
+                else if(div.style.backgroundColor == "red") {
+                    div.style.backgroundColor = "black";
+                    document.getElementById("color-name").innerHTML = "чёрный";
+                }
+                else if(div.style.backgroundColor == "black") {
+                    div.style.backgroundColor = "green";
+                    document.getElementById("color-name").innerHTML = "зелёный";
+                }
+                else if(div.style.backgroundColor == "green") {
+                    div.style.backgroundColor = "blue";
+                    document.getElementById("color-name").innerHTML = "синий";
+                }
+                else if(div.style.backgroundColor == "blue") {
+                    div.style.backgroundColor = "violet";
+                    document.getElementById("color-name").innerHTML = "фиолетовый";
+                }
+                else {
+                    div.style.backgroundColor = "yellow";
+                    document.getElementById("color-name").innerHTML = "жёлтый";
+                }
+            }
+        </script>
+    </head>
+
+    <body>
+        <header>
+            НГТУ, ФБ, Лабораторная 6
+        </header>
+
+        <main>
+            <div class="color" ondblclick="changeColor(this)">
+                Цвет: <span id="color-name">жёлтый</span><br>
+                Сделайте двойной щелчок, чтобы сменить.
+            </div>
+        </main>
+
+        <footer>
+            &copy; Адалинская Тэя, ФБИ-24, 2 курс, 2024
+        </footer>
+    </body>
+</html>
