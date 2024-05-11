@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Адалинская Тэя Валентиновна. Добавление блоков</title>
+        <link rel="stylesheet" href="../main.css">
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+        <link rel="icon" href="favicon-16x16.png">
+        <link rel="icon" href="favicon-32x32.png">
+        <script>
+            function addNewBlock() {
+                let newBlock = document.createElement('div');
+                newBlock.style.backgroundColor = 'green';
+                newBlock.style.height = '40px';
+                newBlock.style.border = '1px';
+                newBlock.style.border = 'solid';
+                newBlock.style.margin = '20px';
+
+                document.querySelector('main').appendChild(newBlock);
+            }
+        </script>
+    </head>
+
+    <body>
+        <header>
+            НГТУ, ФБ, Лабораторная 7
+        </header>
+
+        <main>
+            <button onclick="addNewBlock()">Добавить блок</button>
+        </main>
+
+        <footer>
+            &copy; Адалинская Тэя, ФБИ-24, 2 курс, 2024
+        </footer>
+    </body>
+ </html>
