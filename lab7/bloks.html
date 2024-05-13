@@ -7,6 +7,18 @@
         <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
         <link rel="icon" href="favicon-16x16.png">
         <link rel="icon" href="favicon-32x32.png">
+        <style>
+            .circle {
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
+                display: inline-block;
+                margin: 10px;
+                text-align: center;
+                line-height: 100px;
+                font-size: 24px;
+            }
+        </style>
         <script>
                 function addNewBlock() {
                     let newBlock = document.createElement('div');
@@ -74,6 +86,52 @@
                         main.appendChild(newBlock);
                     }  
                 }
+                function generateCircles() {
+                    let circlesContainer = document.getElementById("circlesContainer");
+                    circlesContainer.innerHTML = "";
+
+                    let circleCount = document.getElementById("circleCount").value;
+
+                    for (let i = circleCount; i > 0; i--) {
+                        let circle = document.createElement("div");
+                        circle.classList.add("circle");
+                        circle.textContent = i;
+
+                        if (i % 2 === 1) {
+                            circle.style.backgroundColor = "red";
+                        } else {
+                            circle.style.backgroundColor = "green";
+                        }
+
+                        circlesContainer.appendChild(circle);
+                    }
+                }
+            
+
+
+        function generateCircles() {
+            let circlesContainer = document.getElementById("circlesContainer");
+            circlesContainer.innerHTML = "";
+
+            let circleCount = document.getElementById("circleCount").value;
+
+            for (let i = circleCount; i > 0; i--) {
+                let circle = document.createElement("div");
+                circle.classList.add("circle");
+                circle.textContent = i;
+
+                if (i % 2 === 1) {
+                    circle.style.backgroundColor = "red";
+                } else {
+                    circle.style.backgroundColor = "green";
+                }
+
+                circlesContainer.appendChild(circle);
+            }
+        }
+
+
+
         </script>
     </head>
 
@@ -89,6 +147,9 @@
             <button onclick="add20_50()">20 => 50</button> <br>
             <button onclick="add10_80()"> 10 => -80</button> <br>
             <button onclick="opacity()">Добавить полупрозрачные блоки</button> <br>
+            <input type="number" id="circleCount" min="1">
+            <button onclick="generateCircles()">Цветные круги</button>
+            <div id="circlesContainer"></div>
         </main>
 
         <footer>
