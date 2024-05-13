@@ -8,16 +8,30 @@
         <link rel="icon" href="favicon-16x16.png">
         <link rel="icon" href="favicon-32x32.png">
         <script>
-            function addNewBlock() {
-                let newBlock = document.createElement('div');
-                newBlock.style.backgroundColor = 'green';
-                newBlock.style.height = '40px';
-                newBlock.style.border = '1px';
-                newBlock.style.border = 'solid';
-                newBlock.style.margin = '20px';
+                function addNewBlock() {
+                    let newBlock = document.createElement('div');
+                    newBlock.style.backgroundColor = 'green';
+                    newBlock.style.height = '40px';
+                    newBlock.style.border = '1px';
+                    newBlock.style.border = 'solid';
+                    newBlock.style.margin = '20px';
 
-                document.querySelector('main').appendChild(newBlock);
-            }
+                    document.querySelector('main').appendChild(newBlock);
+                }
+                function addNewBlocks() {
+                    let main = document.querySelector('main');
+                    let num = document.querySelector('.num');
+                    for(let i = 0; i < num.value; i++) {
+                        let newBlock = document.createElement('div');
+                        newBlock.style.backgroundColor = 'green';
+                        newBlock.style.height = '40px';
+                        newBlock.innerHTML = `Блок № ${i+1}: 2*${i}<sup>2</sup> = ${2 * i**2}`;
+                        newBlock.style.margin = '20px';
+                        newBlock.style.border = 'solid';
+                        newBlock.style.width = `${(i+1)*5 + 200}px`;
+                        main.appendChild(newBlock);
+                    }
+                }
         </script>
     </head>
 
@@ -28,10 +42,12 @@
 
         <main>
             <button onclick="addNewBlock()">Добавить блок</button>
+            <button onclick="addNewBlocks()">Добавить блоки</button>
+            <input type="number" min="0" class="num">
         </main>
 
         <footer>
             &copy; Адалинская Тэя, ФБИ-24, 2 курс, 2024
         </footer>
     </body>
- </html>
+</html>
