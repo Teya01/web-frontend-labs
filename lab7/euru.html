@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Адалинская Тэя Валентиновна. Лабораторная 7</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon-16x16.png">
+    <link rel="icon" href="favicon-32x32.png">
+    <style>
+        .euro-info {
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .euro-info h2 {
+            margin-top: 0;
+        }
+        .euro-info p {
+            margin: 10px 0;
+        }
+        .euro-info .current-rate {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .euro-info .previous-rate,
+        .euro-info .rate-change {
+            font-size: 18px;
+        }
+        .euro-info .rate-change.up {
+            color: green;
+        }
+        .euro-info .rate-change.down {
+            color: red;
+        }
+    </style>
+    <script>
+        function getEuroExchangeRate() {
+            const url = 'https://www.cbr-xml-daily.ru/daily_json.js';
+            fetch(url)
+                .then(function(response) {
+                    return response.json();
+                })
+                .then(function(json) {
+                    const currentRate = json.Valute.EUR.Value.toFixed(2);
+                    const previousRate = json.Valute.EUR.Previous.toFixed(2);
+                    const rateChange = currentRate - previousRate;
+                    const rateChangeDirection = rateChange >= 0 ? 'up' : 'down';
+                    const rateChangeMessage = rateChange >= 0 ? 'поднялся' : 'опустился';
+                    const requestDate = new Date(json.Date).toLocaleString();
+
+                    const euroInfoElement = document.getElementById('euro-info');
+                    euroInfoElement.innerHTML = `
+                        <div class="euro-info">
+                            <h2>Курс евро</h2>
+                            <p>Дата запроса: ${requestDate}</p>
+                            <p class="current-rate">Текущий курс: ${currentRate} руб.</p>
+                            <p class="previous-rate">Курс за прошлую дату: ${previousRate} руб.</p>
+                            <p class="rate-change ${rateChangeDirection}">Курс ${rateChangeMessage} на ${Math.abs(rateChange).toFixed(2)} руб.</p>
+                        </div>
+                    `;
+                })
+                .catch(function(error) {
+                    console.error('Ошибка при получении данных о курсе евро:', error);
+                });
+        }
+    </script>
+</head>
+
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная 7
+    </header>
+
+    <main>
+        <a href="https://www.cbr-xml-daily.ru/">Курсы валют, API</a>
+        <div id="euro-info"></div>
+        <script>
+            getEuroExchangeRate();
+        </script>
+    </main>
+
+    <footer>
+        &copy; Адалинская Тэя, ФБИ-24, 2 курс, 2024
+    </footer>
+</body>
+</html>
