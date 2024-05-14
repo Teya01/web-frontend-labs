@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Адалинская Тэя Валентиновна. Курс акций группы О'кей</title>
+        <link rel="stylesheet" href="../main.css">
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+        <link rel="icon" href="favicon-16x16.png">
+        <link rel="icon" href="favicon-32x32.png">
+        <script>
+            function showStockExchange() {
+                const dates = ['2024-04-29', '2024-04-30', '2024-05-02', '2024-05-03', '2024-05-06',
+                    '2024-05-07', '2024-05-08', '2024-05-10', '2024-05-13', '2024-05-14'
+                ];
+                const prices = [32.26, 32.64, 31.97, 31.40, 31.53, 31.27, 31.39, 32.45, 31.82];
+                let table = document.getElementById('stock-table');
+                for(let i = 0; i < dates.length; i++) {
+                    let tr = document.createElement('tr');
+                    
+                    let tdDate = document.createElement('td');
+                    tdDate.innerText = dates[i];
+                    tr.appendChild(tdDate);
+                    
+                    let tdPrice = document.createElement('td');
+                    tdPrice.innerText = prices[i];
+                    tr.appendChild(tdPrice);
+                    
+                    let tdDiff = document.createElement('td');
+                    if (i === 0) {
+                        tdDiff.innerText = '-';
+                    } else {
+                        tdDiff.innerText = (prices[i] - prices[i-1]).toFixed(2);
+                    }
+                    tr.appendChild(tdDiff);
+                    
+                    table.appendChild(tr);
+                }
+                
+                let sum = 0;
+                let max = -Infinity;
+                let min = Infinity;
+                for(let i = 0; i < prices.length; i++) {
+                    sum += prices[i];
+                    max = Math.max(max, prices[i]);
+                    min = Math.min(min, prices[i]);
+                }
+                let average = sum / prices.length;
+                average = average.toFixed(2);
+                
+                document.getElementById('detail').innerHTML = `
+                    <p>Среднее значение стоимости акции: ${average}</p>
+                    <p>Максимальное значение стоимости акции: ${max}</p>
+                    <p>Минимальное значение стоимости акции: ${min}</p>
+                `;
+                
+                document.getElementById('showStockBtn').style.display = 'none';
+            }
+        </script>
+    </head>
+
+    <body>
+        <header>
+            НГТУ, ФБ, Лабораторная 7
+        </header>
+
+        <main>
+            <button onclick="showStockExchange()" id="showStockBtn">Курс акций ХХХ</button>
+            <table border="1" id="stock-table">
+                <tr>
+                    <th>Дата</th>
+                    <th>Цена акций</th>
+                    <th>Разница</th>
+                </tr>
+            </table>
+            <div id="detail"></div>
+        </main>
+
+        <footer>
+            &copy; Адалинская Тэя, ФБИ-24, 2 курс, 2024
+        </footer>
+    </body>
+ </html>
