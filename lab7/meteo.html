@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Адалинская Тэя Валентиновна. Лабораторная 7</title>
+        <link rel="stylesheet" href="../main.css">
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+        <link rel="icon" href="favicon-16x16.png">
+        <link rel="icon" href="favicon-32x32.png">
+        <script>
+            // Получаем данные о погоде с API
+            fetch('https://api.open-meteo.com/v1/forecast?latitude=55.0415&longitude=82.9346&hourly=temperature_2m&timezone=Asia%2FBangkok')
+              .then(response => response.json())
+              .then(data => {
+                // Получаем значения температуры в нужное время
+                const temperature8am = data.hourly.temperature_2m[8];
+                const temperature12pm = data.hourly.temperature_2m[12];
+                const temperature8pm = data.hourly.temperature_2m[20];
+
+                // Выводим значения температуры на страницу
+                const temperatureOutput = `
+                  <p>Температура в 8 часов утра: ${temperature8am}°C</p>
+                  <p>Температура в 12 часов дня: ${temperature12pm}°C</p>
+                  <p>Температура в 8 часов вечера: ${temperature8pm}°C</p>
+                `;
+                document.getElementById('temperature-output').innerHTML = temperatureOutput;
+              })
+              .catch(error => {
+                console.error('Ошибка при получении данных о погоде:', error);
+              });
+        </script>
+    </head>
+
+    <body>
+        <header>
+            НГТУ, ФБ, Лабораторная 7
+        </header>
+
+        <main>
+            <div id="temperature-output"></div>
+        </main>
+
+        <footer>
+            &copy; Адалинская Тэя, ФБИ-24, 2 курс, 2024
+        </footer>
+    </body>
+ </html>
+ 
