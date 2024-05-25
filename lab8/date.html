@@ -8,15 +8,38 @@
         <link rel="icon" href="favicon-16x16.png">
         <link rel="icon" href="favicon-32x32.png">
         <script src="lab8.js"></script>
+        <script>
+            function showDayOfWeek() {
+                var day = document.getElementById("day").value;
+                var month = document.getElementById("month").value;
+                var year = document.getElementById("year").value;
+    
+                var date = new Date(year, month - 1, day);
+                var daysOfWeek = ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'];
+                var dayOfWeek = daysOfWeek[date.getDay()];
+    
+                document.getElementById("result").innerHTML = "День недели: " + dayOfWeek;
+            }
+        </script>
     </head>
 
-    <body onload="showDate()">
+    <body onload="showDate(), showDateDetails()">
         <header>
             НГТУ, ФБ, Дата
         </header>
 
         <main>
             <div id="current-date"></div>
+            <div id="date-details"></div>
+            <h1>Определение дня недели</h1>
+            <label for="day">День:</label>
+            <input type="text" id="day" placeholder="Введите день">
+            <label for="month">Месяц:</label>
+            <input type="text" id="month" placeholder="Введите месяц">
+            <label for="year">Год:</label>
+            <input type="text" id="year" placeholder="Введите год">
+            <button onclick="showDayOfWeek()">День недели</button>
+            <p id="result"></p>
         </main>
 
         <footer>
